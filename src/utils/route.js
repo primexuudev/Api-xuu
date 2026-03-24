@@ -12,7 +12,9 @@ export const register = (app, route, handler) => {
 
         const data = await handler(c)
 
-        if (data instanceof Response || (data && data.constructor && data.constructor.name === 'Response')) {
+        // PERBAIKAN: Deteksi Response yang lebih baik
+        // Hapus atau ubah bagian ini
+        if (data instanceof Response) {
             return data
         }
 
